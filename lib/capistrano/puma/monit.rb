@@ -4,7 +4,7 @@ module Capistrano
     def register_hooks
       before 'deploy:updating', 'puma:monit:unmonitor'
       after 'deploy:published', 'puma:monit:monitor'
-      after 'deploy:finished', 'puma:restart'
+      after 'deploy:finished', 'puma:monit:restart'
     end
 
     def define_tasks
